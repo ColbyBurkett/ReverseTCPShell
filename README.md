@@ -20,6 +20,8 @@
 
 ```
 
+CB: ## Quick and dirty mod to auto-create an HTA doc (evil.hta) ##
+
 ## Tutorial: ##
 
 ### https://youtu.be/hiYyXv4RdD8 ###
