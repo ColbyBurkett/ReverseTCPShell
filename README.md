@@ -20,7 +20,7 @@
 
 ```
 
-CB: ## Quick and dirty mod to auto-create an HTA doc (evil.hta) ##
+### CB: Quick and dirty mod to auto-create an HTA doc (evil.hta) ###
 
 ## Tutorial: ##
 
