@@ -20,7 +20,10 @@
 
 ```
 
-### CB: Quick and dirty mod to auto-create an HTA & SCT file output (evil.hta/sct) ###
+### CB: Quick and dirty mods to:
+- Reduce CPU consumption on target
+- Create an HTA (evil.hta)
+- Create an SCT (evil.sct)
 
 ## Tutorial: ##
 
